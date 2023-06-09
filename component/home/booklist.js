@@ -1,15 +1,5 @@
 import React, { useState } from 'react';
-import {
-  View,
-  Text,
-  Image,
-  StyleSheet,
-  TouchableOpacity,
-  Alert,
-  Button,
-  TextInput,
-  ScrollView,
-} from 'react-native';
+import {View,Text,Image,StyleSheet,TouchableOpacity,Alert,Button,TextInput,ScrollView,} from 'react-native';
 import bookData from '../data/bookdata';
 
 export default function BookList({ navigation }) {
@@ -34,7 +24,7 @@ export default function BookList({ navigation }) {
     <View style={styles.container}>
       <TextInput
         style={styles.searchBar}
-        placeholder="  Search books by title,author,publisher,year,isbn"
+        placeholder="  Search books by title, author, publisher, year, isbn"
         value={searchText}
         onChangeText={(text) => setSearchText(text)}
       />
@@ -49,13 +39,13 @@ export default function BookList({ navigation }) {
               <Text style={styles.year}>{book.year}</Text>
               <Text style={styles.isbn}>{book.isbn}</Text>
               <TouchableOpacity
-                 style={[styles.reserveButton, book.quantity === '0' && styles.reserveButtonDisabled]}
-                 disabled={book.quantity === '0'}
-                 onPress={() => {
-                    Alert.alert(
-                     'Confirm Reserve',
-                     'Are you sure you want to reserve this book?',
-                     [
+                style={[styles.reserveButton, book.quantity === '0' && styles.reserveButtonDisabled]}
+                disabled={book.quantity === '0'}
+                onPress={() => {
+                  Alert.alert(
+                    'Confirm Reserve',
+                    'Are you sure you want to reserve this book?',
+                    [
                       {
                         text: 'Cancel',
                         style: 'cancel',
@@ -67,9 +57,10 @@ export default function BookList({ navigation }) {
                     ],
                     { cancelable: true }
                   );
-                }}>
-        <Text style={styles.bookButtonText}>{book.quantity === '0'? 'Out of stock' : 'Reserve'}</Text>
-      </TouchableOpacity>
+                }}
+              >
+                <Text style={styles.bookButtonText}>{book.quantity === '0' ? 'Out of stock' : 'Reserve'}</Text>
+              </TouchableOpacity>
             </View>
           </View>
         ))}
@@ -105,8 +96,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#f5f5f5',
     padding: 16,
     borderRadius: 8,
-    borderWidth:0.25,
-    borderColor:"grey"
+    borderWidth: 0.25,
+    borderColor: 'grey',
   },
   image: {
     width: 80,
@@ -121,12 +112,12 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 4,
-    width:200,
+    width: 200,
   },
   author: {
     fontSize: 16,
     marginBottom: 2,
-    width:200,
+    width: 200,
   },
   publisher: {
     fontSize: 16,
@@ -146,10 +137,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     borderRadius: 8,
     alignSelf: 'flex-end',
-    borderBottomColor:'#028A0F',
-    borderRightColor:'#028A0F',
-    borderBottomWidth:2.5,
-    borderRightWidth:2.5,
+    borderBottomColor: '#028A0F',
+    borderRightColor: '#028A0F',
+    borderBottomWidth: 2.5,
+    borderRightWidth: 2.5,
   },
   reserveButtonText: {
     fontSize: 16,
@@ -157,13 +148,10 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   reserveButtonDisabled: {
-    backgroundColor:"grey",
+    backgroundColor: 'grey',
     paddingVertical: 8,
     paddingHorizontal: 16,
     borderRadius: 8,
     alignSelf: 'flex-end',
-
   },
-  
 });
-
